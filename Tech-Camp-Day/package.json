@@ -1,0 +1,20 @@
+{
+    "name": "tech-camp-day-workshop",
+    "version": "1.0.0",
+    "description": "Monorepo for Tech Camp Day workshops",
+    "private": true,
+    "workspaces": [
+        "Expense-Memo",
+        "Horoscope",
+        "Project",
+        "Shop",
+        "Vocab-Flash-Card",
+        "Weather-Bot"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
