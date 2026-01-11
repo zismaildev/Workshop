@@ -1,0 +1,15 @@
+{
+    "name": "northern-tech-on-the-rock",
+    "version": "1.0.0",
+    "description": "Monorepo for Northern Tech on the Rock workshops",
+    "private": true,
+    "workspaces": [
+        "typescript_workshop"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

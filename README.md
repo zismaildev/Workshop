@@ -12,7 +12,7 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
 | กิจกรรม / งาน (Event) | หัวข้อหลัก (Topic) | เทคโนโลยี (Stack) | ลิงก์ (Go to) |
 | :--- | :--- | :--- | :--- |
 | **Agoda Tech Camp Day** | สร้าง Chatbot ง่ายๆ ด้วย LINE Messaging API | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![LINE](https://img.shields.io/badge/LINE-00C300?style=flat-square&logo=line&logoColor=white) | [📂 คลิกเพื่อดู](./Tech-Camp-Day) |
-| **Northern Tech on the Rock** | สร้าง AI Agent และ Multi-Agent System (Strands Agent Mastery) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![AI](https://img.shields.io/badge/AI-FF6F00?style=flat-square) | [📂 คลิกเพื่อดู](./Northern-Tech-on-the-Rock/Strands-Agent-Mastery) |
+| **Northern Tech on the Rock** | 1. สร้าง AI Agent (Strands)<br>2. Confident Deploys (TypeScript) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) | [📂 AI Agent](./Northern-Tech-on-the-Rock/Strands-Agent-Mastery)<br>[📂 TypeScript](./Northern-Tech-on-the-Rock/typescript_workshop) |
 
 ---
 
@@ -27,13 +27,21 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
   - การทำระบบสมาชิกและระบบร้านค้า (Loyalty Program)
   - การเชื่อมต่อ External API (OpenMeteo)
 
-### 2. [Northern Tech on the Rock](./Northern-Tech-on-the-Rock/Strands-Agent-Mastery)
-เวิร์กช็อปเจาะลึกเรื่อง **AI Agents** โดย Strands
-- **Project Structure**: Python
+### 2. [Northern Tech on the Rock](./Northern-Tech-on-the-Rock)
+รวบรวมเวิร์กช็อปจากงาน Tech Conference ภาคเหนือ
+
+#### 2.1 [Strands Agent Mastery](./Northern-Tech-on-the-Rock/Strands-Agent-Mastery)
+เวิร์กช็อปเจาะลึกเรื่อง **AI Agents**
+- **Tech Stack**: Python, Strands
+- **Key Learnings**: พื้นฐานการสร้าง AI Agent, Multi-Agent Patterns
+
+#### 2.2 [TypeScript for Confident Deploys](./Northern-Tech-on-the-Rock/typescript_workshop) **(New ✨)**
+เวิร์กช็อปการจัดการ Infrastructure และ Secrets ด้วย TypeScript
+- **Tech Stack**: TypeScript, Bun, Azure Container Apps, GitHub Actions
 - **Key Learnings**:
-  - พื้นฐานการสร้าง AI Agent
-  - การทำงานแบบ Multi-Agent Patterns
-  - การประยุกต์ใช้ Agent ในงานจริง (Chatbot Applications)
+  - การเขียน Configuration Infrastructure เป็น Code (IaC) ด้วย TypeScript
+  - การจัดการ Secrets อย่างปลอดภัยด้วย Azure Key Vault
+  - การทำ Automated Deployment ผ่าน GitHub Actions
 
 ---
 
