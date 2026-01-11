@@ -1,0 +1,80 @@
+name: Deploy
+on:
+  workflow_dispatch:
+
+env:
+  REVISION_SUFFIX: gh-actions-${{ github.run_id }}-${{ github.run_attempt }}
+
+  BUN_VERSION: 1.3.3
+  AZURE_CLI_VERSION: 2.72.0
+
+jobs:
+  get-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      deployment-matrix: ${{ steps.set-matrix-output.outputs.json-matrix }}
+    steps:
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: ${{ env.BUN_VERSION }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set deployment matrix output
+        id: set-matrix-output
+        run: | 
+          bun run src/entry/deploy.ts
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: get-matrix
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJson(needs.get-matrix.outputs.deployment-matrix).azure_container_app }}
+
+    steps:
+      - uses: thaitype/actions-az-cli/keyvault/secret/show@v1
+        id: get_secret_from_vault
+        with:
+          azure_credentials: ${{ secrets[matrix.credential.gh_secret_name] }}
+          vault_name: ${{ matrix.credential.vault_name }}
+          secret_name: ${{ matrix.credential.secret_name }}
+
+      - name: Login Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ steps.get_secret_from_vault.outputs.secret }}
+
+      - name: Info Deploy Message
+        shell: bash
+        run: |
+          echo "Starting deploy Container on Azure Container App"
+          echo "----------------------------------------------------------"
+          echo "Container App Name: '${{ matrix.name }}'"
+          echo "Resource group: '${{ matrix.resource_group }}'"
+          echo "Image name: '${{ matrix.container_image }}'"
+          echo "Revision Suffix: '${{ env.REVISION_SUFFIX }}'"
+
+      - name: Deploy image to Azure Container App with Revision Suffix
+        uses: azure/CLI@v1
+        with:
+          azcliversion: ${{ env.AZURE_CLI_VERSION }}
+          inlineScript: |
+            az containerapp update \
+              --name ${{ matrix.name }} \
+              --resource-group ${{ matrix.resource_group }} \
+              --image ${{ matrix.container_image }} \
+              --revision-suffix ${{ env.REVISION_SUFFIX}} > ${{ matrix.name }}.log.txt
+
+      - name: Clean tmp files (Sensitive Information)
+        run: |
+          rm -f ${{ matrix.name }}.log.txt
+        shell: bash
+
+      - name: Logout Azure
+        if: always()
+        shell: bash
+        run: az logout
