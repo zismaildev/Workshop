@@ -1,0 +1,93 @@
+[
+  {
+    "review_id": "rev_001",
+    "product_name": "PhotoPhone X",
+    "review_text": "The camera is incredible. Best camera sensor on the market for professional photography.",
+    "category": "Camera",
+    "tags": ["camera", "photography"]
+  },
+  {
+    "review_id": "rev_002",
+    "product_name": "PowerCell 5",
+    "review_text": "The battery life is amazing. It has a massive battery that lasts for three days straight.",
+    "category": "Battery",
+    "tags": ["battery", "power"]
+  },
+  {
+    "review_id": "rev_003",
+    "product_name": "Balanced G1",
+    "review_text": "A great camera and a long-lasting battery. It balances camera quality and battery endurance perfectly.",
+    "category": "Hybrid",
+    "tags": ["camera", "battery"]
+  },
+  {
+    "review_id": "rev_004",
+    "product_name": "SnapDragon S2",
+    "review_text": "The lenses are sharp and the energy efficiency is top-notch for all-day use.",
+    "category": "Hybrid",
+    "tags": ["lenses", "efficiency"]
+  },
+  {
+    "review_id": "rev_005",
+    "product_name": "ScreenMax",
+    "review_text": "Beautiful display but the camera is mediocre and the battery dies quickly.",
+    "category": "Display",
+    "tags": ["screen", "display"]
+  },
+  {
+    "review_id": "rev_006",
+    "product_name": "Compact C1",
+    "review_text": "Small phone with a decent camera, but the small size means a small battery.",
+    "category": "Compact",
+    "tags": ["small", "camera"]
+  },
+  {
+    "review_id": "rev_007",
+    "product_name": "Gamer Pro",
+    "review_text": "Fastest processor for gaming. Don't buy it for the camera, buy it for the speed.",
+    "category": "Gaming",
+    "tags": ["gaming", "performance"]
+  },
+  {
+    "review_id": "rev_008",
+    "product_name": "WorkHorse",
+    "review_text": "Built for work. The battery is reliable but the camera photos are quite grainy.",
+    "category": "Utility",
+    "tags": ["battery", "reliability"]
+  },
+  {
+    "review_id": "rev_009",
+    "product_name": "Cinema Plus",
+    "review_text": "The video camera is great for movies, though it drains the battery in hours.",
+    "category": "Video",
+    "tags": ["camera", "video"]
+  },
+  {
+    "review_id": "rev_010",
+    "product_name": "Budget B1",
+    "review_text": "Cheap phone. The camera is basic and the battery is just standard.",
+    "category": "Budget",
+    "tags": ["budget", "basic"]
+  },
+  {
+    "review_id": "rev_011",
+    "product_name": "NightOwl X",
+    "review_text": "Captures stunning details in complete darkness. The sensor lets in 300% more light for low-light masterpieces.",
+    "category": "Night",
+    "tags": ["dark", "light", "sensor"]
+  },
+  {
+    "review_id": "rev_012",
+    "product_name": "Keyword King",
+    "review_text": "Good for night photography. Night photography mode included. Photography at night.",
+    "category": "Night",
+    "tags": ["night", "photography"]
+  },
+  {
+    "review_id": "rev_013",
+    "product_name": "Lumia Pro",
+    "review_text": "Excellent for night photography, producing clear images in the dark.",
+    "category": "Night",
+    "tags": ["night", "photography", "dark"]
+  }
+]

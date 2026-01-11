@@ -1,0 +1,4 @@
+10035	IGNORE	(X-Content-Type-Options Header Missing)
+10038	IGNORE	(Content Security Policy (CSP) Not Set)
+10015	IGNORE	(Re-examine Cache-control Directives)
+10020	IGNORE	(Missing Anti-clickjacking Header)

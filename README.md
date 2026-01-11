@@ -12,7 +12,7 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
 | กิจกรรม / งาน (Event) | หัวข้อหลัก (Topic) | เทคโนโลยี (Stack) | ลิงก์ (Go to) |
 | :--- | :--- | :--- | :--- |
 | **Agoda Tech Camp Day** | สร้าง Chatbot ง่ายๆ ด้วย LINE Messaging API | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![LINE](https://img.shields.io/badge/LINE-00C300?style=flat-square&logo=line&logoColor=white) | [📂 คลิกเพื่อดู](./Tech-Camp-Day) |
-| **Northern Tech on the Rock** | 1. สร้าง AI Agent (Strands)<br>2. Confident Deploys (TypeScript) | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) | [📂 AI Agent](./Northern-Tech-on-the-Rock/Strands-Agent-Mastery)<br>[📂 TypeScript](./Northern-Tech-on-the-Rock/typescript_workshop) |
+| **Northern Tech on the Rock** | 1. สร้าง AI Agent (Strands)<br>2. Confident Deploys (TypeScript)<br>3. RAG with One MongoDB<br>4. GitHub Actions Security | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) <br> ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) <br> ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) <br> ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white) | [📂 AI Agent](./Northern-Tech-on-the-Rock/Strands-Agent-Mastery)<br>[📂 TypeScript](./Northern-Tech-on-the-Rock/typescript_workshop)<br>[📂 RAG MongoDB](./Northern-Tech-on-the-Rock/RAG-with-One-MongoDB)<br>[📂 GHA Security](./Northern-Tech-on-the-Rock/GitHub%20Actions%20Security%20Crash%20Course) |
 
 ---
 
@@ -26,6 +26,8 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
   - การใช้ Flex Message
   - การทำระบบสมาชิกและระบบร้านค้า (Loyalty Program)
   - การเชื่อมต่อ External API (OpenMeteo)
+- **วิทยากร**: ทีมงาน Agoda
+- **Original Repo**: [tech-camp-day/workshop-cookbook](https://github.com/tech-camp-day/workshop-cookbook/tree/main)
 
 ### 2. [Northern Tech on the Rock](./Northern-Tech-on-the-Rock)
 รวบรวมเวิร์กช็อปจากงาน Tech Conference ภาคเหนือ
@@ -34,14 +36,31 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
 เวิร์กช็อปเจาะลึกเรื่อง **AI Agents**
 - **Tech Stack**: Python, Strands
 - **Key Learnings**: พื้นฐานการสร้าง AI Agent, Multi-Agent Patterns
+- **วิทยากร**: คุณธณิศร จันทร์สำเร็จ (Solution Architect - AWS Thailand)
 
-#### 2.2 [TypeScript for Confident Deploys](./Northern-Tech-on-the-Rock/typescript_workshop) **(New ✨)**
+#### 2.2 [TypeScript for Confident Deploys](./Northern-Tech-on-the-Rock/typescript_workshop)
 เวิร์กช็อปการจัดการ Infrastructure และ Secrets ด้วย TypeScript
 - **Tech Stack**: TypeScript, Bun, Azure Container Apps, GitHub Actions
 - **Key Learnings**:
   - การเขียน Configuration Infrastructure เป็น Code (IaC) ด้วย TypeScript
   - การจัดการ Secrets อย่างปลอดภัยด้วย Azure Key Vault
   - การทำ Automated Deployment ผ่าน GitHub Actions
+- **วิทยากร**: คุณธาดา หวังธรรมมั่ง (Platform Team Lead: T.T. Software Solution) และเจ้าของเพจ ไทยไทป์ ([mildronize](https://github.com/mildronize))
+- **Original Repo**: [mildronize/ts-confident-deploy-and-secret](https://github.com/mildronize/ts-confident-deploy-and-secret)
+
+#### 2.3 [RAG with One MongoDB](./Northern-Tech-on-the-Rock/RAG-with-One-MongoDB)
+เวิร์กช็อปการทำ Hybrid Search
+- **Tech Stack**: Python, MongoDB Atlas (Vector Search), Ollama
+- **Key Learnings**: การทำ Hybrid Search (Vector + Keyword) โดยใช้เทคนิค RSF และ RRF
+- **วิทยากร**: คุณปิติ จำปีทอง (Senior Consulting Engineer: Mongo DB) ([ninefyi](https://github.com/ninefyi))
+- **Original Repo**: [ninefyi/tech-on-the-rock-2025](https://github.com/ninefyi/tech-on-the-rock-2025)
+
+#### 2.4 [GitHub Actions Security Crash Course](./Northern-Tech-on-the-Rock/GitHub%20Actions%20Security%20Crash%20Course)
+เวิร์กช็อปการทำ DevSecOps Pipeline
+- **Tech Stack**: GitHub Actions, OWASP ZAP, Cloudflare Pages
+- **Key Learnings**: การทำ DevSecOps Pipeline, ยิง Security Scan (DAST) อัตโนมัติทุกครั้งที่ Deploy
+- **วิทยากร**: คุณปิติ จำปีทอง (Senior Consulting Engineer: Mongo DB) ([ninefyi](https://github.com/ninefyi))
+- **Original Repo**: [ninefyi/tech-on-the-rock-2025](https://github.com/ninefyi/tech-on-the-rock-2025)
 
 ---
 
