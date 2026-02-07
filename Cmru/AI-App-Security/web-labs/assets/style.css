@@ -1,0 +1,20 @@
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:#f6f7fb;color:#111;margin:0}
+.container{max-width:980px;margin:28px auto;padding:0 16px}
+.card{background:#fff;border:1px solid #e6e8f0;border-radius:14px;padding:18px 18px;box-shadow:0 1px 2px rgba(0,0,0,.04);margin-bottom:16px}
+h1{margin:0 0 8px;font-size:26px}
+h2{margin:0 0 10px;font-size:18px}
+small{color:#555}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+a.btn{display:inline-block;background:#111;color:#fff;padding:10px 12px;border-radius:10px;text-decoration:none}
+a.btn.secondary{background:#334155}
+a.btn.warn{background:#b91c1c}
+a.btn.ok{background:#0f766e}
+a.btn:hover{opacity:.92}
+code{background:#eef2ff;border:1px solid #dbe4ff;padding:1px 6px;border-radius:7px}
+input[type=text],input[type=number]{padding:10px 12px;border:1px solid #cfd6e6;border-radius:10px;min-width:240px}
+button{padding:10px 12px;border:0;border-radius:10px;background:#111;color:#fff;cursor:pointer}
+button:hover{opacity:.92}
+.note{background:#fff7ed;border:1px solid #fed7aa;padding:10px 12px;border-radius:12px}
+hr{border:0;height:1px;background:#eef0f6;margin:14px 0}
+ul{margin:8px 0 0 18px}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#eef2ff;border:1px solid #dbe4ff;font-size:12px}

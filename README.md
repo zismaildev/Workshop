@@ -13,6 +13,7 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
 | :--- | :--- | :--- | :--- |
 | **Agoda Tech Camp Day** | สร้าง Chatbot ง่ายๆ ด้วย LINE Messaging API | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![LINE](https://img.shields.io/badge/LINE-00C300?style=flat-square&logo=line&logoColor=white) | [📂 คลิกเพื่อดู](./Tech-Camp-Day) |
 | **Northern Tech on the Rock** | 1. สร้าง AI Agent (Strands)<br>2. Confident Deploys (TypeScript)<br>3. RAG with One MongoDB<br>4. GitHub Actions Security | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) <br> ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) <br> ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) <br> ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white) | [📂 AI Agent](./Northern-Tech-on-the-Rock/Strands-Agent-Mastery)<br>[📂 TypeScript](./Northern-Tech-on-the-Rock/typescript_workshop)<br>[📂 RAG MongoDB](./Northern-Tech-on-the-Rock/RAG-with-One-MongoDB)<br>[📂 GHA Security](./Northern-Tech-on-the-Rock/GitHub%20Actions%20Security%20Crash%20Course) |
+| **CMRU Workshop** | Web Security Labs - เรียนรู้ช่องโหว่ Web และการป้องกันด้วย OWASP ZAP | ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![OWASP](https://img.shields.io/badge/OWASP-000000?style=flat-square&logo=owasp&logoColor=white) | [📂 คลิกเพื่อดู](./Cmru) |
 
 ---
 
@@ -61,6 +62,20 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
 - **Key Learnings**: การทำ DevSecOps Pipeline, ยิง Security Scan (DAST) อัตโนมัติทุกครั้งที่ Deploy
 - **วิทยากร**: คุณปิติ จำปีทอง (Senior Consulting Engineer: Mongo DB) ([ninefyi](https://github.com/ninefyi))
 - **Original Repo**: [ninefyi/tech-on-the-rock-2025](https://github.com/ninefyi/tech-on-the-rock-2025)
+
+### 3. [CMRU Workshop](./Cmru)
+รวบรวม Lab และโปรเจกต์จากการเรียนที่มหาวิทยาลัยราชภัฏเชียงใหม่
+
+#### 3.1 [AI-App-Security](./Cmru/AI-App-Security)
+วิชา **Secure Web Engineering Lab** สอนเกี่ยวกับช่องโหว่ Web Security และวิธีการป้องกันแบบ Hands-on
+- **Tech Stack**: PHP, XAMPP, OWASP ZAP
+- **Key Learnings**:
+  - XSS (Cross-Site Scripting) และการป้องกัน
+  - Access Control และ File Upload Security
+  - การใช้ OWASP ZAP สแกนหาช่องโหว่
+  - Secure Coding Practices ใน PHP
+- **Lab Structure**: แต่ละ Lab มีทั้ง Vulnerable และ Secure Version เพื่อเปรียบเทียบ
+- **จำนวน Labs**: 5 Labs (XSS, GET/POST Trust, Access Control, File Upload, Info Disclosure)
 
 ---
 
