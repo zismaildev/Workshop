@@ -28,7 +28,7 @@ dependencies = [
     "numpy==1.26.4",
     "pandas==2.3.1",
     "koreanize-matplotlib==0.1.1",
-    "pillow==11.3.0",
+    "pillow==12.1.1",
     "plotly==6.3.0",
     "reportlab==4.4.3",
     "markdown==3.9",
