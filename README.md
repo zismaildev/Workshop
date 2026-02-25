@@ -13,7 +13,7 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
 | :--- | :--- | :--- | :--- |
 | **Agoda Tech Camp Day** | สร้าง Chatbot ง่ายๆ ด้วย LINE Messaging API | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![LINE](https://img.shields.io/badge/LINE-00C300?style=flat-square&logo=line&logoColor=white) | [📂 คลิกเพื่อดู](./Tech-Camp-Day) |
 | **Northern Tech on the Rock** | 1. สร้าง AI Agent (Strands)<br>2. Confident Deploys (TypeScript)<br>3. RAG with One MongoDB<br>4. GitHub Actions Security | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) <br> ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) <br> ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) <br> ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white) | [📂 AI Agent](./Northern-Tech-on-the-Rock/Strands-Agent-Mastery)<br>[📂 TypeScript](./Northern-Tech-on-the-Rock/typescript_workshop)<br>[📂 RAG MongoDB](./Northern-Tech-on-the-Rock/RAG-with-One-MongoDB)<br>[📂 GHA Security](./Northern-Tech-on-the-Rock/GitHub%20Actions%20Security%20Crash%20Course) |
-| **CMRU Workshop** | Web Security Labs - เรียนรู้ช่องโหว่ Web และการป้องกันด้วย OWASP ZAP | ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![OWASP](https://img.shields.io/badge/OWASP-000000?style=flat-square&logo=owasp&logoColor=white) | [📂 คลิกเพื่อดู](./Cmru) |
+| **CMRU Workshop** | 1. Web Security Labs (OWASP ZAP)<br>2. Senior Teaching Junior 2026 | ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white) | [📂 Security](./Cmru/AI-App-Security)<br>[📂 Flutter](./Cmru/Senior-Teaching-Junior-2026) |
 
 ---
 
@@ -76,6 +76,15 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
   - Secure Coding Practices ใน PHP
 - **Lab Structure**: แต่ละ Lab มีทั้ง Vulnerable และ Secure Version เพื่อเปรียบเทียบ
 - **จำนวน Labs**: 5 Labs (XSS, GET/POST Trust, Access Control, File Upload, Info Disclosure)
+
+#### 3.2 [Senior Teaching Junior 2026](./Cmru/Senior-Teaching-Junior-2026)
+โครงการอบรมเชิงปฏิบัติการเพื่อส่งเสริมทักษะการเลือกใช้เครื่องมือและพัฒนาแอปพลิเคชันอย่างมืออาชีพ
+- **Tech Stack**: Flutter, Firebase, Figma, AI Code Generator
+- **Key Learnings**:
+  - การใช้ AI ช่วยเขียนโค้ดเพื่อเพิ่มประสิทธิภาพ
+  - พัฒนา Mobile App ด้วย Flutter และเชื่อมต่อ Firebase
+  - การออกแบบ UI/UX ด้วย Figma
+- **วิทยากร**: รุ่นพี่รหัส 65 (Web Tech & Computer Science)
 
 ---
 

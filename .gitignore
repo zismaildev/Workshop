@@ -1,0 +1,7 @@
+# AI Context
+context/
+*contextai.md
+
+# OS files
+.DS_Store
+Thumbs.db
