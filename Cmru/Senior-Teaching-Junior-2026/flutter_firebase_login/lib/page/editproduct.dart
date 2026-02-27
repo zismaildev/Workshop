@@ -2,21 +2,31 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 
-class Addproduct extends StatefulWidget {
-  const Addproduct({super.key});
+class EditProduct extends StatefulWidget {
+  final String docId;
+  final String currentName;
+  final int currentPrice;
+  final String currentImageUrl;
+
+  const EditProduct({
+    super.key,
+    required this.docId,
+    required this.currentName,
+    required this.currentPrice,
+    required this.currentImageUrl,
+  });
 
   @override
-  State<Addproduct> createState() => _AddproductState();
+  State<EditProduct> createState() => _EditProductState();
 }
 
-class _AddproductState extends State<Addproduct> {
-  final _nameController = TextEditingController(); // ตัวควบคุมสำหรับชื่อสินค้า
-  final _priceController = TextEditingController(); // ตัวควบคุมสำหรับราคาสินค้า
+class _EditProductState extends State<EditProduct> {
+  late TextEditingController _nameController;
+  late TextEditingController _priceController;
 
   File? _image; // ตัวแปรสำหรับเก็บภาพที่เลือก
   bool _isLoading = false; // ตัวแปรสำหรับแสดงสถานะการโหลด
@@ -24,6 +34,15 @@ class _AddproductState extends State<Addproduct> {
   // ข้อมูลสำหรับ Cloudinary
   final String cloudName = '#'; // ชื่อ Cloudinary ของคุณ
   final String uploadPreset = '#'; // Upload preset ของคุณ
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController(text: widget.currentName);
+    _priceController = TextEditingController(
+      text: widget.currentPrice.toString(),
+    );
+  }
 
   // ฟังก์ชันสำหรับเลือกภาพจากแกลเลอรี่
   Future<void> _pickImage() async {
@@ -65,44 +84,53 @@ class _AddproductState extends State<Addproduct> {
     return null; // ถ้าพลาดส่งค่าว่างกลับไป
   }
 
-  // ฟังก์ชันสำหรับบันทึกสินค้า
-  Future<void> _saveProduct() async {
-    // ตรวจสอบว่ากรอกข้อมูลครบหรือยัง
-    if (_nameController.text.isEmpty ||
-        _priceController.text.isEmpty ||
-        _image == null) {
+  // ฟังก์ชันสำหรับอัปเดตข้อมูล
+  Future<void> _updateProduct() async {
+    if (_nameController.text.isEmpty || _priceController.text.isEmpty) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text('กรุณากรอกข้อมูลให้ครบ')));
       return;
     }
 
-    setState(() => _isLoading = true); // เริ่มแสดงหน้าจอโหลด
+    setState(() => _isLoading = true);
 
-    // ขั้นตอนที่ A: ส่งรูปไปฝากที่ Cloudinary ก่อนเพื่อให้ได้ Link (URL) มา
-    String? imageUrl = await _uploadToCloudinary(_image!);
+    String finalImageUrl = widget.currentImageUrl; // ใช้รูปเดิมเป็นค่าเริ่มต้น
 
-    if (imageUrl != null) {
-      // ขั้นตอนที่ B: เมื่อได้ Link รูปมาแล้ว ก็นำ Link นั้นพร้อมชื่อและราคาไปเก็บใน Firestore
-      await FirebaseFirestore.instance.collection('products').add({
-        'name': _nameController.text,
-        'price': int.parse(_priceController.text),
-        'imageUrl': imageUrl, // เก็บเป็น Link ตัวอักษร
-        'sellerEmail':
-            FirebaseAuth.instance.currentUser?.email, // เก็บ Email คนขาย
-        'createdAt': Timestamp.now(), // เก็บเวลาที่ลงขาย
-      });
-
-      // ถ้าบันทึกเสร็จให้ปิดหน้านี้กลับไปหน้า Home
-      if (mounted) Navigator.pop(context);
-    } else {
-      // แจ้งเตือนถ้าอัปโหลดรูปไม่สำเร็จ
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('อัปโหลดรูปภาพล้มเหลว')));
+    // ถ้ามีการเลือกรูปใหม่ ให้ทำการอัปโหลดก่อน
+    if (_image != null) {
+      String? uploadedUrl = await _uploadToCloudinary(_image!);
+      if (uploadedUrl != null) {
+        finalImageUrl = uploadedUrl;
+      } else {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text('อัปโหลดรูปภาพล้มเหลว')));
+        setState(() => _isLoading = false);
+        return;
+      }
     }
 
-    setState(() => _isLoading = false); // ปิดการแสดงหน้าจอโหลด
+    try {
+      // อัปเดตข้อมูลใน Firestore โดยอ้างอิงจาก docId
+      await FirebaseFirestore.instance
+          .collection('products')
+          .doc(widget.docId)
+          .update({
+            'name': _nameController.text,
+            'price': int.parse(_priceController.text),
+            'imageUrl': finalImageUrl,
+            'updatedAt': Timestamp.now(), // เก็บเวลาที่แก้ไข
+          });
+
+      if (mounted) Navigator.pop(context); // กลับไปหน้าก่อนหน้า
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('เกิดข้อผิดพลาด: $e')));
+    }
+
+    setState(() => _isLoading = false);
   }
 
   @override
@@ -110,10 +138,10 @@ class _AddproductState extends State<Addproduct> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "เพิ่มสินค้า",
+          "แก้ไขสินค้า",
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.deepPurple,
         elevation: 1, // ลบเงา
         foregroundColor: Colors.black, // เปลี่ยนสีไอคอนและข้อความเป็นสีดำ
       ),
@@ -134,16 +162,33 @@ class _AddproductState extends State<Addproduct> {
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(10.0),
                       ),
-                      child: _image == null
-                          ? Icon(
+                      child: _image != null
+                          // กรณีที่ 1: เลือกรูปใหม่แล้ว → แสดงรูปใหม่
+                          ? Image.file(_image!, fit: BoxFit.cover)
+                          // กรณีที่ 2: ยังไม่เลือกรูปใหม่ แต่มีรูปเดิม → แสดงรูปเดิม
+                          : widget.currentImageUrl.isNotEmpty
+                          ? Image.network(
+                              widget.currentImageUrl,
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: 200,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  const Icon(Icons.broken_image, size: 50),
+                            )
+                          // กรณีที่ 3: ไม่มีรูปเลย → แสดงไอคอน
+                          : Icon(
                               Icons.add_a_photo,
                               size: 50,
                               color: Colors.grey[700],
-                            )
-                          : Image.file(_image!, fit: BoxFit.cover),
+                            ),
                     ),
                   ),
                   SizedBox(height: 16.0),
+
+                  const Text(
+                    "แตะที่กรอบด้านบนเพื่อเปลี่ยนรูปภาพ",
+                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                  ),
                   // ช่องกรอกชื่อสินค้า
                   TextField(
                     controller: _nameController,
@@ -170,7 +215,7 @@ class _AddproductState extends State<Addproduct> {
                     width: double.infinity,
                     height: 50,
                     child: ElevatedButton(
-                      onPressed: _saveProduct, // ฟังก์ชันสำหรับบันทึกสินค้า
+                      onPressed: _updateProduct, // ฟังก์ชันสำหรับบันทึกสินค้า
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
                             Colors.deepPurpleAccent, // เปลี่ยนสีปุ่ม
@@ -181,7 +226,7 @@ class _AddproductState extends State<Addproduct> {
                         ),
                       ), // ฟังก์ชันสำหรับบันทึกสินค้า
                       child: Text(
-                        "บันทึก",
+                        "บันทึกการแก้ไข",
                         style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,

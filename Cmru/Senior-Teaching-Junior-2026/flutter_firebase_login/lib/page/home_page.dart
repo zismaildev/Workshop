@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_firebase_login/page/productdetail_page.dart';
+import 'package:flutter_firebase_login/page/myproduct_page.dart';
 import 'login_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -138,7 +138,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       vertical: 8.0,
                     ),
                     child: ListTile(
-                      leading: (data['imageUrl'] != null && data['imageUrl'] != '')
+                      leading:
+                          (data['imageUrl'] != null && data['imageUrl'] != '')
                           ? Image.network(
                               data['imageUrl'],
                               width: 50,

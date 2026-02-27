@@ -65,11 +65,18 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.account_circle,
-              size: 80,
-              color: Colors.deepPurple,
+            // const Icon(
+            //   Icons.account_circle,
+            //   size: 80,
+            //   color: Colors.deepPurple,
+            // ),
+            Image(image: AssetImage('assets/images/logo.png'), height: 150),
+
+            Text(
+              'ยินดีต้อนรับสู่ Nattapong Shop',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
+
             const SizedBox(height: 20),
             TextField(
               controller: _emailController,

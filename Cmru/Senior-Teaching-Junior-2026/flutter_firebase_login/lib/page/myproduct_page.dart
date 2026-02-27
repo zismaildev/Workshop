@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_login/page/editproduct.dart';
 import 'addproduct.dart';
 
 class MyProductsPage extends StatelessWidget {
@@ -14,8 +15,11 @@ class MyProductsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('สินค้าของฉัน'),
-        backgroundColor: Colors.white,
+        title: const Text(
+          'สินค้าของฉัน',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.deepPurple,
         foregroundColor: Colors.black,
         elevation: 1,
       ),
@@ -69,12 +73,34 @@ class MyProductsPage extends StatelessWidget {
                 title: Text(data['name'] ?? 'ไม่มีชื่อ'),
                 subtitle: Text('฿${data['price']}'),
                 // ปุ่มถังขยะสำหรับลบสินค้า
-                trailing: IconButton(
-                  icon: const Icon(Icons.delete, color: Colors.red),
-                  onPressed: () {
-                    // เมื่อกด ให้เรียกฟังก์ชันแจ้งเตือนเพื่อยืนยันการลบ
-                    _showDeleteDialog(context, docId);
-                  },
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => EditProduct(
+                              docId: docId,
+                              currentName: data['name'] ?? 'ไม่มีชื่อ',
+                              currentPrice: data['price'] ?? 0,
+                              currentImageUrl: data['imageUrl'] ?? '',
+                            ),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.edit, color: Colors.blue),
+                    ),
+
+                    IconButton(
+                      onPressed: () {
+                        // เมื่อกด ให้เรียกฟังก์ชันแจ้งเตือนเพื่อยืนยันการลบ
+                        _showDeleteDialog(context, docId);
+                      },
+                      icon: const Icon(Icons.delete, color: Colors.red),
+                    ),
+                  ],
                 ),
               );
             },
