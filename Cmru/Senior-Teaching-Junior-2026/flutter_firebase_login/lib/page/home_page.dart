@@ -1,91 +1,21 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_firebase_login/page/productdetail_page.dart';
 import 'login_page.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
   final String title;
+
+  const MyHomePage({super.key, required this.title, required TextStyle style});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _ageController = TextEditingController();
-  String? _selectedGender;
-
-  bool _isLoading = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadProfileData();
-  }
-
-  Future<void> _loadProfileData() async {
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      setState(() {
-        _isLoading = true;
-      });
-      try {
-        DocumentSnapshot doc = await FirebaseFirestore.instance
-            .collection('users')
-            .doc(user.uid)
-            .get();
-
-        if (doc.exists) {
-          setState(() {
-            _nameController.text = doc['name'] ?? '';
-            _ageController.text = doc['age']?.toString() ?? '';
-            _selectedGender = doc['gender'];
-          });
-        }
-      } catch (e) {
-        print("โหลดข้อมูลผิดพลาด: $e");
-      } finally {
-        setState(() {
-          _isLoading = false;
-        });
-      }
-    }
-  }
-
-  Future<void> _saveProfile() async {
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      setState(() {
-        _isLoading = true;
-      });
-      try {
-        await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
-          'name': _nameController.text,
-          'age': int.tryParse(_ageController.text) ?? 0,
-          'gender': _selectedGender ?? 'ไม่ระบุ',
-        }, SetOptions(merge: true));
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('บันทึกข้อมูลโปรไฟล์สำเร็จ!'),
-            backgroundColor: Colors.green,
-          ),
-        );
-      } catch (e) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('เกิดข้อผิดพลาด: $e'),
-            backgroundColor: Colors.red,
-          ),
-        );
-      } finally {
-        setState(() {
-          _isLoading = false;
-        });
-      }
-    }
-  }
+  final TextEditingController _searchController = TextEditingController();
+  String searchText = "";
 
   Future<void> _logout() async {
     await FirebaseAuth.instance.signOut();
@@ -101,8 +31,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: Colors.deepPurple,
+        title: Text(
+          widget.title,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -111,80 +45,133 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : SingleChildScrollView(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const CircleAvatar(
-                    radius: 60,
-                    backgroundColor: Colors.deepPurple,
-                    child: Icon(Icons.person, size: 60, color: Colors.white),
-                  ),
-                  const SizedBox(height: 20),
-                  const Text(
-                    'ข้อมูลโปรไฟล์',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 20),
 
-                  TextField(
-                    controller: _nameController,
-                    decoration: const InputDecoration(
-                      labelText: 'ชื่อ-นามสกุล',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.badge),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-
-                  TextField(
-                    controller: _ageController,
-                    keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      labelText: 'อายุ',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.cake),
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-
-                  DropdownButtonFormField<String>(
-                    decoration: const InputDecoration(
-                      labelText: 'เพศ',
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.wc),
-                    ),
-                    initialValue: _selectedGender,
-                    items: ['ชาย', 'หญิง', 'อื่นๆ'].map((String value) {
-                      return DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      );
-                    }).toList(),
-                    onChanged: (newValue) {
-                      setState(() {
-                        _selectedGender = newValue;
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 30),
-
-                  ElevatedButton(
-                    onPressed: _saveProfile,
-                    style: ElevatedButton.styleFrom(
-                      minimumSize: const Size(double.infinity, 50),
-                    ),
-                    child: const Text(
-                      'บันทึกข้อมูล',
-                      style: TextStyle(fontSize: 18),
-                    ),
-                  ),
-                ],
+      body: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text(
+                'ยินดีต้อนรับสู่หน้าหลัก!',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
+          ),
+
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: TextField(
+                controller: _searchController,
+                decoration: InputDecoration(
+                  hintText: 'ค้นหาสินค้า...',
+                  prefixIcon: const Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[100],
+                ),
+                onChanged: (value) {
+                  setState(() {
+                    searchText = value.toLowerCase();
+                  });
+                },
+              ),
+            ),
+          ),
+
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 8.0,
+              ),
+              child: Text(
+                'สินค้าและบริการของเรา',
+                style: TextStyle(fontSize: 18, color: Colors.grey[700]),
+              ),
+            ),
+          ),
+
+          StreamBuilder<QuerySnapshot>(
+            stream: FirebaseFirestore.instance
+                .collection('products')
+                .snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return const SliverToBoxAdapter(
+                  child: Center(child: Text('เกิดข้อผิดพลาดในการโหลดข้อมูล')),
+                );
+              }
+
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const SliverToBoxAdapter(
+                  child: Center(child: CircularProgressIndicator()),
+                );
+              }
+
+              if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+                return const SliverToBoxAdapter(
+                  child: Center(child: Text('ไม่มีสินค้าในขณะนี้')),
+                );
+              }
+
+              final products = snapshot.data!.docs.where((doc) {
+                final name = doc['name'].toString().toLowerCase();
+                return name.contains(searchText);
+              }).toList();
+
+              if (products.isEmpty) {
+                return SliverToBoxAdapter(
+                  child: Center(child: Text('ไม่พบสินค้าที่ค้นหา')),
+                );
+              }
+
+              return SliverList(
+                delegate: SliverChildBuilderDelegate((context, index) {
+                  final product = products[index];
+                  final data = product.data() as Map<String, dynamic>;
+                  return Card(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 8.0,
+                    ),
+                    child: ListTile(
+                      leading: (data['imageUrl'] != null && data['imageUrl'] != '')
+                          ? Image.network(
+                              data['imageUrl'],
+                              width: 50,
+                              height: 50,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  const Icon(Icons.image_not_supported),
+                            )
+                          : const Icon(Icons.image),
+                      title: Text(data['name'] ?? 'ไม่มีชื่อ'),
+                      subtitle: Text('ราคา ${data['price'] ?? '-'} บาท'),
+                    ),
+                  );
+                }, childCount: products.length),
+              );
+            },
+          ),
+        ],
+      ),
+
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const MyProductsPage()),
+          );
+        },
+        label: const Text(
+          'สินค้าและบริการ',
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        icon: const Icon(Icons.shopping_cart),
+      ),
     );
   }
 }

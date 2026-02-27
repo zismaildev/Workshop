@@ -33,7 +33,8 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const MyHomePage(title: 'หน้าหลักของฉัน'),
+            builder: (context) =>
+                const MyHomePage(title: 'Zismail Shop', style: TextStyle()),
           ),
         );
       } on FirebaseAuthException catch (e) {
