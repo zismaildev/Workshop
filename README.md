@@ -12,8 +12,8 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
 | กิจกรรม / งาน (Event) | หัวข้อหลัก (Topic) | เทคโนโลยี (Stack) | ลิงก์ (Go to) |
 | :--- | :--- | :--- | :--- |
 | **Agoda Tech Camp Day** | สร้าง Chatbot ง่ายๆ ด้วย LINE Messaging API | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) ![LINE](https://img.shields.io/badge/LINE-00C300?style=flat-square&logo=line&logoColor=white) | [📂 คลิกเพื่อดู](./Tech-Camp-Day) |
-| **Northern Tech on the Rock** | 1. สร้าง AI Agent (Strands)<br>2. Confident Deploys (TypeScript)<br>3. RAG with One MongoDB<br>4. GitHub Actions Security | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) <br> ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) <br> ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) <br> ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white) | [📂 AI Agent](./Northern-Tech-on-the-Rock/Strands-Agent-Mastery)<br>[📂 TypeScript](./Northern-Tech-on-the-Rock/typescript_workshop)<br>[📂 RAG MongoDB](./Northern-Tech-on-the-Rock/RAG-with-One-MongoDB)<br>[📂 GHA Security](./Northern-Tech-on-the-Rock/GitHub%20Actions%20Security%20Crash%20Course) |
-| **CMRU Workshop** | 1. Web Security Labs (OWASP ZAP)<br>2. Senior Teaching Junior 2026 | ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white) | [📂 Security](./Cmru/AI-App-Security)<br>[📂 Flutter](./Cmru/Senior-Teaching-Junior-2026) |
+| **Northern Tech on the Rock** | 1. สร้าง AI Agent (Strands)<br>2. Confident Deploys (TypeScript)<br>3. RAG with One MongoDB<br>4. GitHub Actions Security | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) <br> ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) <br> ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) <br> ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white) | [📂 AI Agent](./Northern-Tech-on-the-Rock/Strands-Agent-Mastery)<br>[📂 TypeScript](./Northern-Tech-on-the-Rock/TypeScript-for-Confident-Deploys)<br>[📂 RAG MongoDB](./Northern-Tech-on-the-Rock/RAG-with-One-MongoDB)<br>[📂 GHA Security](./Northern-Tech-on-the-Rock/GitHub-Actions-Security-Crash-Course) |
+| **CMRU Workshop** | 1. Web Security Labs (OWASP ZAP)<br>2. Senior Teaching Junior 2026 | ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white) | [📂 Security](./AI-App-Security)<br>[📂 Flutter](./Senior-Teaching-Junior-2026) |
 
 ---
 
@@ -39,34 +39,34 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
 - **Key Learnings**: พื้นฐานการสร้าง AI Agent, Multi-Agent Patterns
 - **วิทยากร**: คุณธณิศร จันทร์สำเร็จ (Solution Architect - AWS Thailand)
 
-#### 2.2 [TypeScript for Confident Deploys](./Northern-Tech-on-the-Rock/typescript_workshop)
+#### 2.2 [TypeScript for Confident Deploys](./Northern-Tech-on-the-Rock/TypeScript-for-Confident-Deploys)
 เวิร์กช็อปการจัดการ Infrastructure และ Secrets ด้วย TypeScript
 - **Tech Stack**: TypeScript, Bun, Azure Container Apps, GitHub Actions
 - **Key Learnings**:
   - การเขียน Configuration Infrastructure เป็น Code (IaC) ด้วย TypeScript
   - การจัดการ Secrets อย่างปลอดภัยด้วย Azure Key Vault
   - การทำ Automated Deployment ผ่าน GitHub Actions
-- **วิทยากร**: คุณธาดา หวังธรรมมั่ง (Platform Team Lead: T.T. Software Solution) และเจ้าของเพจ ไทยไทป์ ([mildronize](https://github.com/mildronize))
+- **วิทยากร**: คุณธาดา หวังธรรมมั่ง (Platform Team Lead: T.T. Software Solution) และเจ้าของเพจ ไทยไทป์ [mildronize](https://github.com/mildronize)
 - **Original Repo**: [mildronize/ts-confident-deploy-and-secret](https://github.com/mildronize/ts-confident-deploy-and-secret)
 
 #### 2.3 [RAG with One MongoDB](./Northern-Tech-on-the-Rock/RAG-with-One-MongoDB)
 เวิร์กช็อปการทำ Hybrid Search
 - **Tech Stack**: Python, MongoDB Atlas (Vector Search), Ollama
 - **Key Learnings**: การทำ Hybrid Search (Vector + Keyword) โดยใช้เทคนิค RSF และ RRF
-- **วิทยากร**: คุณปิติ จำปีทอง (Senior Consulting Engineer: Mongo DB) ([ninefyi](https://github.com/ninefyi))
+- **วิทยากร**: คุณปิติ จำปีทอง (Senior Consulting Engineer: Mongo DB) [ninefyi](https://github.com/ninefyi)
 - **Original Repo**: [ninefyi/tech-on-the-rock-2025](https://github.com/ninefyi/tech-on-the-rock-2025)
 
-#### 2.4 [GitHub Actions Security Crash Course](./Northern-Tech-on-the-Rock/GitHub%20Actions%20Security%20Crash%20Course)
+#### 2.4 [GitHub Actions Security Crash Course](./Northern-Tech-on-the-Rock/GitHub-Actions-Security-Crash-Course)
 เวิร์กช็อปการทำ DevSecOps Pipeline
 - **Tech Stack**: GitHub Actions, OWASP ZAP, Cloudflare Pages
 - **Key Learnings**: การทำ DevSecOps Pipeline, ยิง Security Scan (DAST) อัตโนมัติทุกครั้งที่ Deploy
-- **วิทยากร**: คุณปิติ จำปีทอง (Senior Consulting Engineer: Mongo DB) ([ninefyi](https://github.com/ninefyi))
+- **วิทยากร**: คุณปิติ จำปีทอง (Senior Consulting Engineer: Mongo DB) [ninefyi](https://github.com/ninefyi)
 - **Original Repo**: [ninefyi/tech-on-the-rock-2025](https://github.com/ninefyi/tech-on-the-rock-2025)
 
-### 3. [CMRU Workshop](./Cmru)
+### 3. CMRU Workshop
 รวบรวม Lab และโปรเจกต์จากการเรียนที่มหาวิทยาลัยราชภัฏเชียงใหม่
 
-#### 3.1 [AI-App-Security](./Cmru/AI-App-Security)
+#### 3.1 [AI-App-Security](./AI-App-Security)
 วิชา **Secure Web Engineering Lab** สอนเกี่ยวกับช่องโหว่ Web Security และวิธีการป้องกันแบบ Hands-on
 - **Tech Stack**: PHP, XAMPP, OWASP ZAP
 - **Key Learnings**:
@@ -77,14 +77,30 @@ Repository นี้แบ่งออกเป็นหัวข้อตาม
 - **Lab Structure**: แต่ละ Lab มีทั้ง Vulnerable และ Secure Version เพื่อเปรียบเทียบ
 - **จำนวน Labs**: 5 Labs (XSS, GET/POST Trust, Access Control, File Upload, Info Disclosure)
 
-#### 3.2 [Senior Teaching Junior 2026](./Cmru/Senior-Teaching-Junior-2026)
+#### 3.2 [Senior Teaching Junior 2026](./Senior-Teaching-Junior-2026)
+**อบรมวันที่ 23-27 ก.พ. 2569: ระบบแอปมือถือสำหรับ Login และจัดการสินค้า ด้วย Flutter + Firebase + Cloudinary**
 โครงการอบรมเชิงปฏิบัติการเพื่อส่งเสริมทักษะการเลือกใช้เครื่องมือและพัฒนาแอปพลิเคชันอย่างมืออาชีพ
+
 - **Tech Stack**: Flutter, Firebase, Figma, AI Code Generator
 - **Key Learnings**:
   - การใช้ AI ช่วยเขียนโค้ดเพื่อเพิ่มประสิทธิภาพ
   - พัฒนา Mobile App ด้วย Flutter และเชื่อมต่อ Firebase
   - การออกแบบ UI/UX ด้วย Figma
-- **วิทยากร**: รุ่นพี่รหัส 65 (Web Tech & Computer Science)
+- **วิทยากร**: Tanonchai (รุ่นพี่รหัส 65 Computer Science) [Tanonchai67](https://github.com/Tanonchai67)
+
+#### 3.3 [Senior Teaching Junior 2026](./Senior-Teaching-Junior-2026)
+**อบรมวันที่ 2-6 มี.ค. 2569: ระบบจัดการเวิร์กชอป (Workshop Management System)**
+ระบบลงทะเบียนและจัดการกิจกรรมเวิร์กชอป พัฒนาด้วย Laravel 12 ร่วมกับ Livewire 3 ออกแบบ UI ให้มีความสวยงามทันสมัยสไตล์ Glassmorphism ด้วย Flux UI และ Tailwind CSS v4
+
+- **Tech Stack**: Laravel 12, Livewire 3, Tailwind CSS v4, PostgreSQL 16, Docker, Bun, GitHub Actions (Self-hosted Runner)
+- **Key Features**:
+  - **👨‍🎓 Student Panel**: ลงทะเบียนได้สูงสุด 3 หัวข้อ, ป้องกัน Double Registration, ปิดรับสมัครอัตโนมัติเมื่อที่นั่งเต็ม Real-time, โปรไฟล์ดึงรูปจาก CMRU API
+  - **👨‍💼 Admin Panel**: CRUD เวิร์กช็อป, Dashboard จำนวนผู้ลงทะเบียนและที่นั่งคงเหลือ
+  - **🚀 CI/CD**: Auto deploy ผ่าน GitHub Actions Self-hosted Runner (Build Vite, Migrate DB, Cleanup)
+- **วิทยากร**: Kritsanai (รุ่นพี่รหัส 65 Web Technology) [NightBrain](https://github.com/NightBrain)
+
+> **หมายเหตุ:** โปรเจกต์นี้ถูก Push ไปที่ GitHub Organization [Department-of-Computer-CMRU-2026](https://github.com/Department-of-Computer-CMRU-2026)
+> 🔗 **Source Code:** [Workshop-std66143420](https://github.com/Department-of-Computer-CMRU-2026/Workshop-std66143420)
 
 ---
 
