@@ -20,7 +20,7 @@ dependencies = [
     "termcolor==3.1.0",
     "matplotlib==3.10.7",
     "seaborn==0.13.2",
-    "python-dotenv==1.1.1",
+    "python-dotenv==1.2.2",
     "langchain==1.0.1",
     "lovelyplots==1.0.2",
     "weasyprint==68.0",
