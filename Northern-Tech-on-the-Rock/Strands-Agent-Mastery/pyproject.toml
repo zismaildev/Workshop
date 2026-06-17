@@ -21,7 +21,7 @@ dependencies = [
     "matplotlib==3.10.7",
     "seaborn==0.13.2",
     "python-dotenv==1.2.2",
-    "langchain==1.0.1",
+    "langchain==1.3.9",
     "lovelyplots==1.0.2",
     "weasyprint==68.0",
     "scikit-learn==1.7.1",
