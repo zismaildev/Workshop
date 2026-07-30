@@ -11,7 +11,7 @@ dependencies = [
     "ipykernel==6.29.5",
     "jupyter==1.1.1",
     "boto3>=1.40.51",
-    "awscli>=1.42.10",
+    "awscli>=1.44.78",
     "sagemaker>=3.8.0",
     "strands-agents==1.14.0",
     "mcp==1.28.1",
